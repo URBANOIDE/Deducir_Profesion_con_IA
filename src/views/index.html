@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Gustos, Pasiones y Habilidades</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f7f7f7;
+		}
+
+		form {
+			max-width: 600px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			border-radius: 5px;
+		}
+
+		h2 {
+			font-size: 28px;
+			font-weight: bold;
+			margin-top: 0;
+		}
+
+		label {
+			display: block;
+			font-size: 18px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		input[type="text"],
+		textarea {
+			width: 100%;
+			padding: 10px;
+			font-size: 16px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin-bottom: 20px;
+		}
+
+		textarea {
+			height: 150px;
+		}
+
+		button[type="submit"] {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 20px;
+			font-size: 18px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		button[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<h2>Formulario de Gustos, Pasiones y Habilidades</h2>
+		<label for="gustos">Gustos:</label>
+		<input type="text" id="gustos" name="gustos" placeholder="Escribe tus gustos aquí">
+
+		<label for="pasiones">Pasiones:</label>
+		<textarea id="pasiones" name="pasiones" placeholder="Escribe tus pasiones aquí"></textarea>
+
+		<label for="habilidades">Habilidades:</label>
+		<input type="text" id="habilidades" name="habilidades" placeholder="Escribe tus habilidades aquí">
+
+		<button type="submit">Enviar</button>
+	</form>
+</body>
+</html>
