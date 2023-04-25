@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Gustos, Pasiones y Habilidades</title>
+  <title>Respuesta al Formulario de Gustos, Pasiones y Habilidades</title>
 	<style>
 		body {
 			font-family: Arial, sans-serif;
@@ -57,21 +57,33 @@
 		button[type="submit"]:hover {
 			background-color: #3e8e41;
 		}
+
+		.respuesta {
+			margin-top: 20px;
+			font-size: 18px;
+			font-weight: bold;
+		}
+
+		.regresar {
+			margin-top: 20px;
+			font-size: 18px;
+			font-weight: bold;
+			color: #4CAF50;
+			text-decoration: none;
+		}
+
+		.regresar:hover {
+			color: #3e8e41;
+		}
 	</style>
 </head>
 <body>
-	<form action="{{ url_for('respuesta') }}" method="POST">
-		<h2>Formulario de Gustos, Pasiones y Habilidades</h2>
-		<label for="gustos">Gustos:</label>
-		<textarea id="gustos" name="gustos" placeholder="Escribe tus gustos aquí"></textarea>
+	<form>
+		<h2>Respuesta al Formulario de Gustos, Pasiones y Habilidades</h2>
+		<p class="respuesta">¡Gracias por completar el formulario!</p>
+		<p class="respuesta">{{ res }}</p>
 
-		<label for="pasiones">Pasiones:</label>
-		<textarea id="pasiones" name="pasiones" placeholder="Escribe tus pasiones aquí"></textarea>
-
-		<label for="habilidades">Habilidades:</label>
-		<textarea id="habilidades" name="habilidades" placeholder="Escribe tus habilidades aquí"></textarea>
-
-		<button type="submit">Enviar</button>
+		<a href="{{ url_for('index') }}" class="regresar">Regresar</a>
 	</form>
 </body>
 </html>
