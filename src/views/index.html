@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Gustos, Pasiones y Habilidades</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Formulario de Gustos, Pasiones y Habilidades</title>
 	<style>
 		body {
 			font-family: Arial, sans-serif;
-			background-color: #f7f7f7;
+			background-image: url("https://1.bp.blogspot.com/-it3fxXB7qDA/YOU_s_YeY8I/AAAAAAAANxY/0xO6XM0l8K81lWTfNMA0aEhnVBJcfhs1gCLcBGAsYHQ/w640-h512/innovation.gif");
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
 		}
 
 		form {
 			max-width: 600px;
 			margin: 0 auto;
 			padding: 20px;
-			background-color: #fff;
-			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			background-color: rgba(255, 255, 255, 0.3);
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 			border-radius: 5px;
 		}
 
@@ -24,6 +28,10 @@
 			font-size: 28px;
 			font-weight: bold;
 			margin-top: 0;
+			color: #333;
+			text-align: center;
+			margin-bottom: 20px;
+			text-shadow: 1px 1px #fff;
 		}
 
 		label {
@@ -31,6 +39,8 @@
 			font-size: 18px;
 			font-weight: bold;
 			margin-bottom: 10px;
+			color: #333;
+			text-shadow: 1px 1px #fff;
 		}
 
 		textarea {
@@ -40,8 +50,10 @@
 			border: 1px solid #ccc;
 			border-radius: 5px;
 			margin-bottom: 20px;
-			box-sizing: border-box; /* Añadido */
+			box-sizing: border-box;
+			/* Añadido */
 			height: 100px;
+			resize: vertical;
 		}
 
 		button[type="submit"] {
@@ -52,26 +64,48 @@
 			border: none;
 			border-radius: 5px;
 			cursor: pointer;
+			display: block;
+			margin: 0 auto;
+			margin-top: 20px;
+			transition: all 0.3s ease-in-out;
 		}
 
 		button[type="submit"]:hover {
 			background-color: #3e8e41;
+			transform: scale(1.1);
+		}
+
+		.error {
+			color: red;
+			text-align: center;
 		}
 	</style>
 </head>
+
 <body>
 	<form action="{{ url_for('respuesta') }}" method="POST">
 		<h2>Formulario de Gustos, Pasiones y Habilidades</h2>
+
 		<label for="gustos">Gustos:</label>
-		<textarea id="gustos" name="gustos" placeholder="Escribe tus gustos aquí"></textarea>
+		<textarea id="gustos" name="gustos" placeholder="Escribe tus gustos aquí" required></textarea>
 
 		<label for="pasiones">Pasiones:</label>
-		<textarea id="pasiones" name="pasiones" placeholder="Escribe tus pasiones aquí"></textarea>
+		<textarea id="pasiones" name="pasiones" placeholder="Escribe tus pasiones aquí" required></textarea>
 
 		<label for="habilidades">Habilidades:</label>
-		<textarea id="habilidades" name="habilidades" placeholder="Escribe tus habilidades aquí"></textarea>
+		<textarea id="habilidades" name="habilidades" placeholder="Escribe tus habilidades aquí" required></textarea>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		<label for="mensaje" class="error">
+			{% for message in messages %}
+			{{ message }}
+			{% endfor %}
+		</label>
+		{% endif %}
+		{% endwith %}
 
 		<button type="submit">Enviar</button>
 	</form>
 </body>
+
 </html>

@@ -1,9 +1,9 @@
 import openai
-
+from src.config.config import OPENAI_API_KEY
 #from src.controllers.home import index
 
 # Configura tus credenciales de API
-openai.api_key = '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'
+openai.api_key = OPENAI_API_KEY
 
 class ConsultasModel():
     def OpenAI(self, gustos, pasiones, habilidades):

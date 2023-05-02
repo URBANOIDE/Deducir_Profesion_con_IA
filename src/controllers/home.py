@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import redirect, render_template, request, url_for, flash
 from src import app
 from src.models.consultaGPT import ConsultasModel
 
@@ -20,8 +20,8 @@ def respuesta():
     try:
         res = consultasModel.OpenAI(gustos, pasiones, habilidades)
     except Exception as e:
-        # Manejar el error aquí, puedes imprimirlo, registrarlo en un archivo de registro, o mostrar un mensaje de error al usuario.
-        res = 'Error: {}'.format(str(e))
+        flash("Se ha producido un error, porfavor intente más tarde.")
+        return redirect(url_for('index'))
 
     #return render_template('respuesta.html', res = res)
 
